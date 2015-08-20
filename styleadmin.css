@@ -1,0 +1,144 @@
+*{
+   padding:0;
+   margin:0;
+   }
+.clear{
+ clear:both;
+} 
+body,input,textarea,select{
+font-family:"Times New Roman",arial;
+font-size:16px;
+}
+input[type="submit"]{
+cursor:pointer;
+  background-color:#3d9ccd;
+  color:#fff;
+}
+input.short[type="text"],
+input.short[type="password"]{
+width:200px;
+}
+input.medium[type="text"],
+input.medium[type="password"]{
+width:400px;
+}
+input.long[type="text"],
+input.long[type="password"]{
+width:580px;
+}
+#wrapper-login{
+width:280px;
+height:180px;
+margin:0 auto;
+background:#254;
+padding:20px;
+margin:50px auto 0 auto;
+}  
+li{
+list-style:none;
+}
+#wrapper-login h1
+{ 
+font-size:17px;
+border-bottom:1px solid #fff;
+}
+#wrapper-login table tr td input[type="text"],
+#wrapper-login table tr td input[type="password"]
+{
+line-height:23px;
+width:180px;
+}
+#wrapper-login table
+{
+   margin-left:10px;
+   margin-top:30px;
+ }
+#wrapper-login table tr td input[type="submit"]
+{
+  margin-left:50px;
+  margin-top:20px;
+  padding:1px;
+  background-color:#3d9ccd;
+  color:#fff;
+  }
+#wrapper{
+width:900px;
+height:auto;
+margin:0 auto;
+background-color:#264;
+border:1px solid #000;
+overflow:hidden;
+padding:10px;
+margin-top:30px;
+}
+#header{
+width:900px;
+height:80px;
+}
+#header h1{
+ color:#fff;
+ font-size:22px;
+ border-bottom:3px solid #3d9ccd;
+ }
+#container{
+width:960px;
+height:300px;
+}
+#sidebar{
+width:200px;
+height:auto;
+float:left;
+}
+#sidebar h2{
+color:#fff;
+font-size:16px;
+margin-top:10px;
+margin-bottom:15px;
+border-bottom:1px solid #3d9ccd;
+}
+#sidebar ul li a{
+text-decoration:none;
+}
+#sidebar ul li {
+line-height:28px;
+}
+#content{
+width:600px;
+height:auto;
+margin-left:50px;
+float:left;
+} 
+#content h2{
+color:#fff;
+font-size:17px;
+border-bottom:1px solid #3d9ccd;
+margin-top:10px;
+}
+table.tabl{
+margin:10px;
+}
+table.tabl tr td input[type="text"]{
+height:23px;
+line-height:30px;
+}
+table.tabl2{
+margin-top:10px;
+}
+table.tabl2 tr td,th {
+text-align:center;
+padding:2px;
+}
+table.tabl2 tr td a{
+text-decoration:none;
+color:#15638A;
+}
+table.tabl2 tr:nth-child(2n) td{
+background-color:#9EB0AD;
+}
+table.tabl2 tr:nth-child(2n+1) td{
+background-color:#C7D9D6;
+}
+table.tabl2 tr th{
+background-color:#3d9ccd;
+color:#fff;
+}
