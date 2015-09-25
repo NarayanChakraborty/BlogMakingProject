@@ -30,7 +30,7 @@ width:580px;
 width:280px;
 height:180px;
 margin:0 auto;
-background:#254;
+background:#265;
 padding:20px;
 margin:50px auto 0 auto;
 }  
@@ -40,13 +40,15 @@ list-style:none;
 #wrapper-login h1
 { 
 font-size:17px;
-border-bottom:1px solid #fff;
+color:#fff;
+border-bottom:2px solid #3f9ccd;
 }
 #wrapper-login table tr td input[type="text"],
 #wrapper-login table tr td input[type="password"]
 {
 line-height:23px;
 width:180px;
+margin:2px;
 }
 #wrapper-login table
 {
@@ -55,11 +57,12 @@ width:180px;
  }
 #wrapper-login table tr td input[type="submit"]
 {
-  margin-left:50px;
+  float:right;
   margin-top:20px;
   padding:1px;
-  background-color:#3d9ccd;
-  color:#fff;
+ /* background-color:#3f9ccd;*/
+  background-color:#265;
+  border-color:#265;
   }
 #wrapper{
 width:900px;
@@ -82,7 +85,7 @@ height:80px;
  }
 #container{
 width:960px;
-height:300px;
+min-height:450px;
 }
 #sidebar{
 width:200px;

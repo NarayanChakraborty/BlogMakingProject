@@ -10,17 +10,34 @@
 	    return confirm("Do you sure want to delete this data?");
 	 }
 	 </script>
-	 </script>
-	<!-- Fancybox jQuery -->
-	<script type="text/javascript" src="../fancybox/jquery-1.9.0.min.js"></script>
-	<script type="text/javascript" src="../fancybox/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="../fancybox/main.js"></script>
-	<link rel="stylesheet" type="text/css" href="../fancybox/jquery.fancybox.css" />
-	<!-- //Fancybox jQuery -->
-	
-	<!-- CKEditor Start -->
-	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-	<!-- // CKEditor End -->
+	<!-- Add jQuery library -->
+<script type="text/javascript" src="../fancybox/lib/jquery-1.10.1.min.js"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="../fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="../fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+<link rel="stylesheet" href="../fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+<script type="text/javascript" src="../fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+<!----CKEditor Start---->
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<!---//CKEditor End----->
+
+
+<script type="text/javascript">
+		$(document).ready(function() {
+
+
+			$('.fancybox').fancybox();
+		});
+</script>
+
 </head>
 <body>
 <div id="wrapper">

@@ -11,11 +11,11 @@
       <form action="" method="post">
        <table>
             <tr>
-                 <td>Username:</td>
+                 <td>Username:&nbsp;</td>
                  <td><input type="text" name="username"></td>
             </tr>
             <tr>
-                  <td>Password:</td>
+                  <td>Password:&nbsp;</td>
                    <td><input type="password" name="password"></td>
              </tr>
 			 <tr>

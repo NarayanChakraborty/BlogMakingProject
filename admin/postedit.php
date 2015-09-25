@@ -5,7 +5,8 @@
     <tr><td>Title</td></tr>
 	<tr><td><input class="long" type="text"name=""value="Retro Photos"></td></tr>
 	<tr><td>Description</td></tr>
-	<tr><td><textarea name="des" cols="30" rows="5">HI I am Sree Narayan Chakraborty
+	<tr><td>
+	<textarea name="des" cols="30" rows="5">HI I am Sree Narayan Chakraborty
 	HI I am Sree Narayan Chakraborty
 	HI I am Sree Narayan Chakraborty
 	HI I am Sree Narayan Chakraborty

@@ -4,7 +4,7 @@
 <table class="tabl">
     <tr>
 	     <td>Footer Text <br>
-		 <input class="medium" type="text" name="footer"></td>
+		 <input class="medium" type="text" name="footer" value="Copyright©2015,SN Chakraborty"> </td>
 	</tr>
 	<tr>
 		 <td><input type="submit" value="save"></td>
