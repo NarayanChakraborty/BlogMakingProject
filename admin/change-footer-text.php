@@ -1,3 +1,11 @@
+<?php
+ob_start();
+session_start();
+if($_SESSION['name']!='snchousebd')
+{
+header('location: login.php');
+}
+?>
 <?php include("header.php"); ?>
 		   <h2>Change footer Text</h2>
 <form action="">

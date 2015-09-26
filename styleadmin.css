@@ -28,9 +28,9 @@ width:580px;
 }
 #wrapper-login{
 width:280px;
-height:180px;
+height:200px;
 margin:0 auto;
-background:#265;
+background:#264;
 padding:20px;
 margin:50px auto 0 auto;
 }  
@@ -118,7 +118,7 @@ border-bottom:1px solid #3d9ccd;
 margin-top:10px;
 }
 table.tabl{
-margin:10px;
+margin:5px;
 }
 table.tabl tr td input[type="text"]{
 height:23px;
@@ -144,4 +144,14 @@ background-color:#C7D9D6;
 table.tabl2 tr th{
 background-color:#3d9ccd;
 color:#fff;
+}
+.error{
+	padding:10px;
+	font-weight:bold;
+	color:#f74937;
+}
+.success{
+	color:#3684d4;
+	font-weight:bold;
+	padding:10px;
 }

@@ -1,3 +1,11 @@
+<?php
+ob_start();
+session_start();
+if($_SESSION['name']!='snchousebd')
+{
+header('location: login.php');
+}
+?>
 <?php include("header.php"); ?>
 <h2>View All tags</h2>
 <table class="tabl2" width="100%">
