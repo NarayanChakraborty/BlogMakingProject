@@ -61,7 +61,15 @@ require_once('../config.php');
 	 }
  }
 
-
+ //Delete operation
+ if(isset($_REQUEST['id']))
+ {
+	 $id=$_REQUEST['id'];
+	 $statement=$db->prepare("delete from tbl_category where cat_id=?");
+	 $statement->execute(array($id));
+	 $success_msg2="Category has been successfully Deleted";
+ }
+ 
 ?>
 
 <?php include("header.php"); ?>
@@ -69,13 +77,13 @@ require_once('../config.php');
 
  <h2>Add new Category</h2>
 		  <?php
-		if(isset($error_message1))
+		if(isset($error_message))
 		{
-		  echo "<div class='error'>".$error_message1."</div>";
+		  echo "<div class='error'>".$error_message."</div>";
 		}
-		if(isset($success_msg1))
+		if(isset($success_msg))
 		{
-			echo "<div class='success'>".$success_msg1."</div>";
+			echo "<div class='success'>".$success_msg."</div>";
 		}
 		?>	
 <form action="" method="post">
@@ -102,13 +110,17 @@ require_once('../config.php');
 
 <!-------SQL with PDO to fetch all category----->
 		  <?php
-		if(isset($error_message))
+		if(isset($error_message1))
 		{
-		  echo "<div class='error'>".$error_message."</div>";
+		  echo "<div class='error'>".$error_message1."</div>";
 		}
-		if(isset($success_msg))
+		if(isset($success_msg1))
 		{
-			echo "<div class='success'>".$success_msg."</div>";
+			echo "<div class='success'>".$success_msg1."</div>";
+		}
+			if(isset($success_msg2))
+		{
+			echo "<div class='success'>".$success_msg2."</div>";
 		}
 		?>
 <?php
@@ -142,7 +154,7 @@ foreach($result as $row)
 		 </p>
 	</div>
 	&nbsp;|&nbsp;
-	<a onclick='return confirmDelete();' href="">Delete</a></td>
+	<a onclick='return confirmDelete();' href="managecategory.php?id=<?php echo $row['cat_id']; ?>">Delete</a></td>
 </tr>  
 <?php	
 }
