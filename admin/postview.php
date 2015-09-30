@@ -35,11 +35,9 @@ foreach($result as $row)
 				<p>
 				 <form action=""method="POST">
 				 <table style="border:1px solid #3d9ccd;">
+				    <tr><td><b>Post Title</b></td></tr>
 					<tr>
-						<td><b><?php echo $row['post_title'];?></b></td>
-					</tr>
-					<tr>
-						<td>Retro Photos</td>
+						<td><?php echo $row['post_title'];?></td>
 					</tr>
 					<tr>
 						<td><b>Description</b></td>
@@ -51,10 +49,10 @@ foreach($result as $row)
 						</td>
 					</tr>
 					<tr>
-						<td>Featured Image</td>
+						<td><b>Featured Image</b></td>
 					</tr>
 					<tr>
-							<td><img src="../uploads/<?php echo $row['post_image']; ?>" alt=""></td>
+							<td><img src="../uploads/<?php echo $row['post_image'];?>" alt="" width="200px" height="180px"></td>
 					</tr>
 					<tr>
 						<td><b>Category</b></td>
