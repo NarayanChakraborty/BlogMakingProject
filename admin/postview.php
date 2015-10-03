@@ -101,7 +101,9 @@ foreach($result as $row)
 				 </form>
 				 </p>
 			</div>
-			&nbsp;|&nbsp;<a href="postedit.php?id=<?php echo $row['post_id'];?>">Edit</a>&nbsp;|&nbsp;<a onclick='return confirmDelete();' href="">Delete</a></td>
+			&nbsp;|&nbsp;
+			<a href="postedit.php?id=<?php echo $row['post_id'];?>">Edit</a>&nbsp;|
+			&nbsp;<a onclick='return confirmDelete();' href="postdelete.php?id=<?php echo $row['post_id'];?>">Delete</a></td>
 		</tr>
 			
 	
