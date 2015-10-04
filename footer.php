@@ -21,20 +21,57 @@
 					
 			 </ul>
 				
-				<img src="images/title2.gif" alt="" width="180" height="34" />
+				<img src="images/title2.gif" alt="" width="180" height="34" /><br>
+				
+				<?php
+				     $j=0;
+					 $statement=$db->prepare("select distinct(post_date) from tbl_post order by post_date desc");
+					 $statement->execute(array());
+					 $result=$statement->fetchAll(PDO::FETCH_ASSOC);
+					 foreach($result as $row)
+					 {
+						  
+						 $ym=substr($row['post_date'],0,7);
+						 $arr_date[$j]=$ym;
+						 $j++;
+					 }
+					 $result=array_unique($arr_date);
+					 $final_val=implode(",",$result);
+					 $final_arr_date=explode(",",$final_val);
+					 $final_arr_date_count=count(explode(",",$final_val));
+					 
+					 
+					 ?>  
+				
 				<ul>
-					<li><a href="#">January</a></li>
-					<li><a href="#">July</a></li>
-					<li><a href="#">February</a></li>
-					<li><a href="#">August</a></li>
-					<li><a href="#">March</a></li>
-					<li><a href="#">September</a></li>
-					<li><a href="#">April</a></li>
-					<li><a href="#">October</a></li>
-					<li><a href="#">May</a></li>
-					<li><a href="#">November</a></li>
-					<li><a href="#">June</a></li>
-					<li><a href="#">December</a></li>
+				
+				    <?php 
+					for($j=0;$j<$final_arr_date_count;$j++)
+					 {
+						// echo $final_arr_date[$j]."<br>";
+						$year=substr($final_arr_date[$j],0,4);
+						$month=substr($final_arr_date[$j],5,2);
+						if($month=='01') {$post_month='January';}
+						if($month=='02') {$post_month='February';}
+						if($month=='03') {$post_month='March';}
+						if($month=='04') {$post_month='April';}
+						if($month=='05') {$post_month='May';}
+						if($month=='06') {$post_month='June';}
+						if($month=='07') {$post_month='JULY';}
+						if($month=='08') {$post_month='August';}
+						if($month=='09') {$post_month='September';}
+						if($month=='10') {$post_month='October';}
+						if($month=='11') {$post_month='November';}
+						if($month=='12') {$post_month='December';}
+					?>
+					
+				     <li><a href="archives.php?date=<?php echo $final_arr_date[$j];?>">
+						 <?php echo $post_month." ".$year."<br>"; ?>
+						 </a>
+					</li>
+					<?php
+				     		}
+					?>
 				</ul>
 			</div>
 		</div>
