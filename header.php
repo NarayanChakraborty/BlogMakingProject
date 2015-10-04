@@ -5,6 +5,8 @@
 <title>Blog Design</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="style.css" />
+<!-- Add jQuery library -->
+<script type="text/javascript" src="fancybox/lib/jquery-1.10.1.min.js"></script>
 
 <!-- Add fancyBox -->
 <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
