@@ -3,6 +3,7 @@ if(!isset($_REQUEST['date']))
 {
 	header('location: index.php');
 }
+$date=$_REQUEST['date'];
 ?>
 <?php include('header.php'); ?>
 		
@@ -44,7 +45,7 @@ if(!isset($_REQUEST['date']))
 			{   
 				$pagination .= "<div class=\"pagination\">";
 				if ($page > 1) 
-					$pagination.= "<a href=\"$targetpage?page=$prev\">&#171; previous</a>";
+					$pagination.= "<a href=\"$targetpage?date=$date & page=$prev\">&#171; previous</a>";
 				else
 					$pagination.= "<span class=\"disabled\">&#171; previous</span>";    
 				if ($lastpage < 7 + ($adjacents * 2))   //not enough pages to bother breaking it up
@@ -54,7 +55,7 @@ if(!isset($_REQUEST['date']))
 						if ($counter == $page)
 							$pagination.= "<span class=\"current\">$counter</span>";
 						else
-							$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+							$pagination.= "<a href=\"$targetpage?date=$date & page=$counter\">$counter</a>";                 
 					}
 				}
 				elseif($lastpage > 5 + ($adjacents * 2))    //enough pages to hide some
@@ -66,39 +67,39 @@ if(!isset($_REQUEST['date']))
 							if ($counter == $page)
 								$pagination.= "<span class=\"current\">$counter</span>";
 							else
-								$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+								$pagination.= "<a href=\"$targetpage?date=$date & page=$counter\">$counter</a>";                 
 						}
 						$pagination.= "...";
-						$pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
-						$pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";       
+						$pagination.= "<a href=\"$targetpage?date=$date & page=$lpm1\">$lpm1</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=$lastpage\">$lastpage</a>";       
 					}
 					elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2))
 					{
-						$pagination.= "<a href=\"$targetpage?page=1\">1</a>";
-						$pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=1\">1</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=2\">2</a>";
 						$pagination.= "...";
 						for ($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++)
 						{
 							if ($counter == $page)
 								$pagination.= "<span class=\"current\">$counter</span>";
 							else
-								$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+								$pagination.= "<a href=\"$targetpage?date=$date & page=$counter\">$counter</a>";                 
 						}
 						$pagination.= "...";
-						$pagination.= "<a href=\"$targetpage?page=$lpm1\">$lpm1</a>";
-						$pagination.= "<a href=\"$targetpage?page=$lastpage\">$lastpage</a>";       
+						$pagination.= "<a href=\"$targetpage?date=$date & page=$lpm1\">$lpm1</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=$lastpage\">$lastpage</a>";       
 					}
 					else
 					{
-						$pagination.= "<a href=\"$targetpage?page=1\">1</a>";
-						$pagination.= "<a href=\"$targetpage?page=2\">2</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=1\">1</a>";
+						$pagination.= "<a href=\"$targetpage?date=$date & page=2\">2</a>";
 						$pagination.= "...";
 						for ($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++)
 						{
 							if ($counter == $page)
 								$pagination.= "<span class=\"current\">$counter</span>";
 							else
-								$pagination.= "<a href=\"$targetpage?page=$counter\">$counter</a>";                 
+								$pagination.= "<a href=\"$targetpage?date=$date & page=$counter\">$counter</a>";                 
 						}
 					}
 				}
@@ -118,6 +119,12 @@ if(!isset($_REQUEST['date']))
 			 
 			 foreach($result as $row)
 				{
+					
+					$date_from_database=$row['post_date'];
+					$date_from_database=substr($date_from_database,0,7);
+					if($date_from_database==$_REQUEST['date'])
+					{
+					
 			 ?>
 						 
 			    <div class="post">
@@ -183,8 +190,11 @@ if(!isset($_REQUEST['date']))
 			</div>
 						 
 						 <?php
-					}
-              ?>	
+						 
+						 
+					}	 
+				}
+             ?>	
 <div class="pagination">			  
 <?php echo $pagination;?>	
 </div>		
