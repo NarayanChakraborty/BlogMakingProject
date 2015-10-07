@@ -12,7 +12,7 @@ include('../config.php');
 
 if(isset($_POST['form1']))
 {
-	try{
+	try{  
 		if(empty($_POST['post_title']))
 		{
 			throw new Exception("Title can not be empty");
@@ -97,6 +97,8 @@ if(isset($_POST['form1']))
 		   
 		   //post date
 		   $post_date= date('Y-m-d');
+		   $year=substr($post_date,0,4);
+		   $month=substr($post_date,5,2);
 		   
 		   
 		   //post time
@@ -104,8 +106,8 @@ if(isset($_POST['form1']))
 		   
 		   
 		   //pdo to insert all above informations.. to tbl_post
-		   $statement=$db->prepare("insert into tbl_post(post_title,post_description,post_image,cat_id,tag_id,post_date,post_timestamp) values(?,?,?,?,?,?,?)");
-		   $statement->execute(array($_POST['post_title'],$_POST['post_description'],$f1,$_POST['cat_id'],$tag_ids,$post_date,$post_timestamp));
+		   $statement=$db->prepare("insert into tbl_post(post_title,post_description,post_image,cat_id,tag_id,post_date,month,year,post_timestamp) values(?,?,?,?,?,?,?,?,?)");
+		   $statement->execute(array($_POST['post_title'],$_POST['post_description'],$f1,$_POST['cat_id'],$tag_ids,$post_date,$month,$year,$post_timestamp));
 		   
 		   $success_message="Post is inserted succesfully";
 	

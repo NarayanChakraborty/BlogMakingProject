@@ -14,7 +14,7 @@
 					 foreach($result as $row)
 					 {
 						 ?>
-						 <li><a href="#"><?php echo $row['cat_name']; ?></a></li>
+						 <li><a href="category.php?id=<?php echo $row['cat_id']; ?>"><?php echo $row['cat_name']; ?></a></li>
 						 <?php
 					 }
 					 ?>
