@@ -309,8 +309,17 @@ padding:0px;
 font-size:11px
 }
 
-
-
+input[type=image]{
+	width:94px;
+	height:27px;
+	border:0px;
+}
+.error{
+	color:red;
+}
+.success{
+	color:green;
+}
 
 /* ====================== Pagination Starts ====================== */
 

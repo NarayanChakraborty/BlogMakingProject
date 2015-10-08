@@ -7,6 +7,45 @@ if(!isset($_REQUEST['id']))
 $id=$_REQUEST['id'];
 ?>
 
+<?php
+if(isset($_POST['c_email']))
+{
+	try{
+			if(empty($_POST['c_message']))
+			{
+				throw new Exception('Message Can not be empty');
+			}
+			if(empty($_POST['c_name']))
+			{
+				throw new Exception('Name Can not be empty');
+			}
+			if(empty($_POST['c_email']))
+			{
+				throw new Exception('Email Can not be empty');
+			}
+			if(!(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/", $_POST['c_email'])))
+		    {
+			 throw new Exception("Please Enter a valid Email Address<br>");
+			  //echo "<div class='error'>Please Enter a valid Email Address</div><br>";
+		    }
+			$c_date=date("y-m-d");
+			$active =0;
+	     include('config.php');
+	     $statement=$db->prepare("insert into tbl_comment(c_name,c_email,c_url,c_message,c_date,post_id,active) values(?,?,?,?,?,?,?)");
+		 $statement->execute(array($_POST['c_name'],$_POST['c_email'],$_POST['c_url'],$_POST['c_message'],$c_date,$id,$active));
+		   
+	
+	     $success_msg="Your Comment successfully sent,it will be published after admin approval";
+	    
+	
+	}
+	catch(Exception $e)
+	{
+	$error_msg=$e->getMessage();
+	}
+}
+
+?>
 
 <?php include('header.php'); ?>
                  <?php
@@ -99,18 +138,31 @@ $id=$_REQUEST['id'];
 				</div>
 				<div id="add">
 					<img src="images/title4.gif" alt="" width="216" height="47" class="title" /><br />
+					
+					<?php
+         if(isset($error_msg))
+		{
+		  echo "<div class='error'>".$error_msg."</div>";
+		}
+		if(isset($success_msg))
+		{
+			echo "<div class='success'>".$success_msg."</div>";
+		}
+?>
+					
 					<div class="avatar">
 						<img src="images/avatar2.gif" alt="" width="80" height="80" /><br />
 						<span>Name User</span><br />
 						April 12th
 					</div>
 					<div class="form">
-						<form action="#">
-							<textarea>Your Message...</textarea><br />
-							<input type="text" value="Name" /><br />
-							<input type="text" value="E-mail" /><br />
-							<input type="text" value="URL (Optional)" /><br />
-							<a href="#"><img src="images/button.gif" alt="" width="94" height="27" /></a>
+						<form action="index2.php?id=<?php echo $id;?>" method="POST">
+							<textarea  name="c_message" placeholder="Your Message..."></textarea><br />
+							<input type="text" name="c_name" placeholder="Name" /><br />
+							<input type="text" name="c_email" placeholder="E-mail" /><br />
+							<input type="text" name="c_url" placeholder="URL (Optional)" /><br />
+							<input type="image" src="images/button.gif" alt=""name="form1">
+							
 						</form>
 					</div>
 				</div>
