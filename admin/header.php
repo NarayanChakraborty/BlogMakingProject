@@ -58,6 +58,11 @@
 					    <li><a href="postview.php">View Post</a></li>
 					    <li><a href="managecategory.php">Manage Category</a></li>
 						<li><a href="managetag.php">Manage Tags</a></li>
+				  </ul>  
+				  <h2>Comment Section</h2>
+			      <ul>
+				       <li><a href="commentapprove.php">View Comments</a></li>
+					   
 				  </ul>
 		  </div>
            <div id="content">

@@ -65,7 +65,7 @@ margin:2px;
   border-color:#265;
   }
 #wrapper{
-width:900px;
+width:930px;
 height:auto;
 margin:0 auto;
 background-color:#264;
@@ -75,7 +75,7 @@ padding:10px;
 margin-top:30px;
 }
 #header{
-width:900px;
+width:920px;
 height:80px;
 }
 #header h1{
@@ -84,7 +84,7 @@ height:80px;
  border-bottom:3px solid #3d9ccd;
  }
 #container{
-width:960px;
+min-width:900px;
 min-height:450px;
 }
 #sidebar{
@@ -106,7 +106,7 @@ text-decoration:none;
 line-height:28px;
 }
 #content{
-width:600px;
+width:680px;
 height:auto;
 margin-left:50px;
 float:left;
@@ -126,6 +126,7 @@ line-height:30px;
 }
 table.tabl2{
 margin-top:10px;
+margin-bottom:10px;
 }
 table.tabl2 tr td,th {
 text-align:center;

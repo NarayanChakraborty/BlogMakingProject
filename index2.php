@@ -28,10 +28,10 @@ if(isset($_POST['c_email']))
 			 throw new Exception("Please Enter a valid Email Address<br>");
 			  //echo "<div class='error'>Please Enter a valid Email Address</div><br>";
 		    }
-			$c_date=date("y-m-d");
+			$c_date=date("Y-m-d");
 			$active =0;
 	     include('config.php');
-	     $statement=$db->prepare("insert into tbl_comment(c_name,c_email,c_url,c_message,c_date,post_id,active) values(?,?,?,?,?,?,?)");
+	     $statement=$db->prepare("insert into tbl_comment(c_name,c_email,c_url,c_message,c_date,post_id,action) values(?,?,?,?,?,?,?)");
 		 $statement->execute(array($_POST['c_name'],$_POST['c_email'],$_POST['c_url'],$_POST['c_message'],$c_date,$id,$active));
 		   
 	
@@ -119,23 +119,80 @@ if(isset($_POST['c_email']))
 			
 			
 			<div id="comments">
+			
+			
+			<?php
+			$statement=$db->prepare("select * from tbl_comment where action=1");
+			$statement->execute();
+			$result=$statement->fetchAll(PDO::FETCH_ASSOC);
+			foreach($result as $row)
+			{
+			  ?>
+					
 				<img src="images/title3.gif" alt="" width="216" height="39" /><br />																																																																																																																																																																																																																																																															<div class="inner_copy"><a href="http://www.bestfreetemplates.org/">free templates</a><a href="http://www.bannermoz.com/">banner templates</a></div>
 				<div class="comment">
 					<div class="avatar">
+					
+					    <?php
+							$gravatarMd5=md5($row['c_email']);
+							//$gravatarMd5=""; //when no gravatar is found
+							?>
+							<img src="http://www.gravatar.com/avatar/<?php echo $gravatarMd5;?>" alt="" width="40px">
+					
 						<img src="images/avatar1.jpg" alt="" width="80" height="80" /><br />
-						<span>Name User</span><br />
-						April 15th
+						
+						
+						
+						<span>
+						
+					    <?php 
+						if(empty($row['c_url']))
+						echo $row['c_name']; 
+					    else
+						{
+							echo "<a href='".$row['c_url']."'>";
+							echo $row['c_name'];
+							echo "</a>";
+						}
+						?>
+						
+						</span><br />
+						<?php
+						$date=$row['c_date'];
+						$year=substr($date,0,4);
+						$month=substr($date,5,2);
+						$post_day=substr($post_date,8,2);
+						
+						if($month=='01') {$post_month='Jan';}
+						if($month=='02') {$post_month='Feb';}
+						if($month=='03') {$post_month='Mar';}
+						if($month=='04') {$post_month='Apr';}
+						if($month=='05') {$post_month='May';}
+						if($month=='06') {$post_month='Jun';}
+						if($month=='07') {$post_month='JUL';}
+						if($month=='08') {$post_month='Aug';}
+						if($month=='09') {$post_month='Sep';}
+						if($month=='10') {$post_month='Oct';}
+						if($month=='11') {$post_month='Nov';}
+						if($month=='12') {$post_month='Dec';}
+						
+						
+						echo "$post_day"." "."$post_month"." "."$year";
+						?>
 					</div>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipi scing elit.Mauris urna urna, varius et, interdum a, tincidunt quis, libero. Aenean sit amturpis. Maecenas hendrerit, massa ac laoreet iaculipede mnisl ullamcorpermassa, cosectetuer feipsum eget pede. Donec nonummy, tellus er sodales enim, in tincidunmauris in odio. </p>
+					<p>
+					     <?php
+						   echo $row['c_message'];
+						 ?>
+					</p>
 				</div>
-				<div class="comment">
-					<div class="avatar">
-						<img src="images/avatar2.gif" alt="" width="80" height="80" /><br />
-						<span>Name User</span><br />
-						April 12th
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipi scing elit.Mauris urna urna, varius et, interdum a, tincidunt quis, libero. </p>
-				</div>
+			
+			
+            <?php			
+			}
+			?>
+					
+				
 				<div id="add">
 					<img src="images/title4.gif" alt="" width="216" height="47" class="title" /><br />
 					
@@ -160,7 +217,7 @@ if(isset($_POST['c_email']))
 							<textarea  name="c_message" placeholder="Your Message..."></textarea><br />
 							<input type="text" name="c_name" placeholder="Name" /><br />
 							<input type="text" name="c_email" placeholder="E-mail" /><br />
-							<input type="text" name="c_url" placeholder="URL (Optional)" /><br />
+							<input type="text" name="c_url" placeholder="URL (Optional)  Include http before your Website" /><br />
 							<input type="image" src="images/button.gif" alt=""name="form1">
 							
 						</form>

@@ -173,7 +173,15 @@
 						?>
 						</p>
 				</div>
-				<p class="comments">Comments - 17   <span>|</span>   <a href="index2.php?id=<?php echo $row['post_id']; ?>">Continue Reading</a></p>
+				<p class="comments">Comments 
+				
+				<?php
+				   $statement1=$db->prepare("select * from tbl_comment where post_id=? and action=1");
+                   $statement1->execute(array($row['post_id']));
+                   $totalnum=$statement1->rowCount();
+                   echo $totalnum;				   
+				?>
+				<span>|</span>   <a href="index2.php?id=<?php echo $row['post_id']; ?>">Continue Reading</a></p>
 			</div>
 						 
 						 <?php
