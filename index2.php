@@ -120,16 +120,24 @@ if(isset($_POST['c_email']))
 			
 			<div id="comments">
 			
-			
+			<img src="images/title3.gif" alt="" width="216" height="39" /><br />
 			<?php
-			$statement=$db->prepare("select * from tbl_comment where action=1");
-			$statement->execute();
+			$statement=$db->prepare("select * from tbl_comment where action=1 and post_id=?");
+			$statement->execute(array($id));
 			$result=$statement->fetchAll(PDO::FETCH_ASSOC);
+			$num=$statement->rowCount();
+			 if($num==0)
+				{
+					 ?>
+			          <h2 style="text-align:center;">No Comment Found</h2>
+				  <?php	
+				}
+			
 			foreach($result as $row)
 			{
 			  ?>
 					
-				<img src="images/title3.gif" alt="" width="216" height="39" /><br />																																																																																																																																																																																																																																																															<div class="inner_copy"><a href="http://www.bestfreetemplates.org/">free templates</a><a href="http://www.bannermoz.com/">banner templates</a></div>
+																																																																																																																																																																																																																																																																			<div class="inner_copy"><a href="http://www.bestfreetemplates.org/">free templates</a><a href="http://www.bannermoz.com/">banner templates</a></div>
 				<div class="comment">
 					<div class="avatar">
 					
@@ -181,8 +189,9 @@ if(isset($_POST['c_email']))
 						?>
 					</div>
 					<p>
-					     <?php
-						   echo $row['c_message'];
+					     
+						 <?php
+							    echo $row['c_message'];
 						 ?>
 					</p>
 				</div>
@@ -191,7 +200,7 @@ if(isset($_POST['c_email']))
             <?php			
 			}
 			?>
-					
+			
 				
 				<div id="add">
 					<img src="images/title4.gif" alt="" width="216" height="47" class="title" /><br />

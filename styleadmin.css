@@ -50,6 +50,7 @@ line-height:23px;
 width:180px;
 margin:2px;
 }
+
 #wrapper-login table
 {
    margin-left:10px;
@@ -94,14 +95,20 @@ float:left;
 }
 #sidebar h2{
 color:#fff;
-font-size:16px;
+font-size:18px;
 margin-top:10px;
 margin-bottom:15px;
 border-bottom:1px solid #3d9ccd;
 }
 #sidebar ul li a{
 text-decoration:none;
+
 }
+#sidebar a{
+   color:#94e0b3;
+   font-size:17px;
+}
+
 #sidebar ul li {
 line-height:28px;
 }
@@ -155,4 +162,11 @@ color:#fff;
 	color:#3684d4;
 	font-weight:bold;
 	padding:10px;
+}
+.tabl{
+	color:#fef;
+}
+.tabl td {
+	margin-top:5px;
+	padding:2px;
 }

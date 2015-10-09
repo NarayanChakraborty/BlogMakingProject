@@ -24,8 +24,12 @@ $month1=substr($date,5,2);
 			$statement = $db->prepare("SELECT * FROM tbl_post where month=? and year=? ORDER BY post_id DESC");
 			$statement->execute(array($month1,$year1));
 			$total_pages = $statement->rowCount();
-							
-			
+			if($total_Pages==0)
+			{
+			    ?>
+			          <h1 style="text-align:center;">No Post Found</h1>
+				  <?php	
+			}
 			$targetpage = $_SERVER['PHP_SELF'];   //your file name  (the name of this file)
 			$limit =4;                                 //how many items to show per page
 			$page = @$_GET['page'];
@@ -186,7 +190,16 @@ $month1=substr($date,5,2);
 						?>
 						</p>
 				</div>
-				<p class="comments">Comments - 17   <span>|</span>   <a href="index2.php?id=<?php echo $row['post_id']; ?>">Continue Reading</a></p>
+				<p class="comments">Comments 
+                   
+                 <?php
+				   $statement1=$db->prepare("select * from tbl_comment where post_id=? and action=1");
+                   $statement1->execute(array($row['post_id']));
+                   $totalnum=$statement1->rowCount();
+                   echo $totalnum;				   
+				?>
+				 
+				<span>|</span>   <a href="index2.php?id=<?php echo $row['post_id']; ?>">Continue Reading</a></p>
 			</div>
 						 
 						 <?php
