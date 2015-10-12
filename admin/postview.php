@@ -8,7 +8,7 @@ header('location: login.php');
 include('../config.php');
 ?>
 <?php include("header.php"); ?>
-<h2>View All tags</h2>
+<h2>View All Posts</h2>
 <table class="tabl2" width="100%">
 <tr>
     <th width="5%">Serial</th>
