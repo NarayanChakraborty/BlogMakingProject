@@ -87,9 +87,9 @@ foreach($result as $row)
 	
 	<!---fancy box to show post--->
 	
-	<td><a id="inline" class="fancybox" href="#inline<?php echo $i;?>"><?php echo $row['post_id'];?></a>
+	<td><a id="inline" class="fancybox" href="#inline<?php echo $i.$i;?>"><?php echo $row['post_id'];?></a>
 	
-	<div id="inline<?php echo $i;?>" style="width:550px; display:none;overflow:auto;">
+	<div id="inline<?php echo $i.$i;?>" style="width:550px; display:none;overflow:auto;">
 				<h3 style="background-color:#3d9ccd;color:#fff;">View Data</h3>
 				<p>
 				
@@ -255,9 +255,9 @@ foreach($result as $row)
 	
 	
 	<!---fancy box to show post--->
-	<td><a id="inline" class="fancybox" href="#inline<?php echo $i;?>"><?php echo $row['post_id'];?></a>
+	<td><a id="inline" class="fancybox" href="#inline<?php echo $i.$i?>"><?php echo $row['post_id'];?></a>
 	
-	<div id="inline<?php echo $i;?>" style="width:550px; display:none;overflow:auto;">
+	<div id="inline<?php echo $i.$i?>" style="width:550px; display:none;overflow:auto;">
 				<h3 style="background-color:#3d9ccd;color:#fff;">View Data</h3>
 				<p>
 				
@@ -354,5 +354,5 @@ foreach($result as $row)
 ?>
 </table>	
 		   
-<?php include("footer.php"); ?>				   
+<?php include("footer.php"); ?>
 		  
