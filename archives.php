@@ -24,7 +24,7 @@ $month1=substr($date,5,2);
 			$statement = $db->prepare("SELECT * FROM tbl_post where month=? and year=? ORDER BY post_id DESC");
 			$statement->execute(array($month1,$year1));
 			$total_pages = $statement->rowCount();
-			if($total_Pages==0)
+			if($total_pages==0)
 			{
 			    ?>
 			          <h1 style="text-align:center;">No Post Found</h1>

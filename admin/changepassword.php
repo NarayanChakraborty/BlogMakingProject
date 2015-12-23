@@ -69,7 +69,7 @@ if(isset($_POST['form']))
 		{
 			echo "<div class='success'>".$success_msg."</div>";
 		}
-		?>	
+	?>	
 <form action="" method="POST">
 <table class="tabl">
     <tr>

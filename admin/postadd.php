@@ -99,6 +99,7 @@ if(isset($_POST['form1']))
 		   $post_date= date('Y-m-d');
 		   $year=substr($post_date,0,4);
 		   $month=substr($post_date,5,2);
+		   $day=substr($post_date,7,2);
 		   
 		   
 		   //post time
